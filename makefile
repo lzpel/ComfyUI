@@ -1,5 +1,5 @@
 run: node_add
-	uv run main.py --enable-manager 
+	uv run main.py --enable-manager --listen 0.0.0.0
 node_add:
 	cd custom_nodes && git clone https://github.com/cicalooo/ComfyUI-H3-PowerLoraStack || echo "ComfyUI-H3-PowerLoraStack already exists"
 	cd custom_nodes && git clone https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git || echo "Comfyui_Minimax_h3_latent_Upscaler already exists"
