@@ -1,8 +1,8 @@
-run:
-	uv run main.py 
-run2:
-	uv run main.py --windows-standalone-build
-
+run: node_add
+	uv run main.py --enable-manager 
+node_add:
+	cd custom_nodes && git clone https://github.com/cicalooo/ComfyUI-H3-PowerLoraStack || echo "ComfyUI-H3-PowerLoraStack already exists"
+	cd custom_nodes && git clone https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git || echo "Comfyui_Minimax_h3_latent_Upscaler already exists"
 uv_add:
 	uv add comfyui-frontend-package==1.57.6 comfyui-workflow-templates==0.11.100 comfyui-embedded-docs==0.5.15 \
 		torchsde "numpy>=1.25.0" einops "transformers>=4.50.3" "tokenizers>=0.13.3" sentencepiece \
@@ -11,3 +11,5 @@ uv_add:
 		"simpleeval>=1.0.0" blake3
 uv_add_non_essential:
 	uv add "kornia>=0.7.1" spandrel "pydantic~=2.0" "pydantic-settings~=2.0" "PyOpenGL>=3.1.8" comfy-angle
+uv_add_manager:
+	uv add comfyui_manager==4.2.2
